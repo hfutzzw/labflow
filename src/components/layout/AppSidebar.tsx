@@ -26,7 +26,7 @@ export default function AppSidebar() {
 
   return (
     <aside className={cn(
-      'fixed left-0 top-0 z-40 h-screen flex flex-col',
+      'fixed left-0 top-0 z-40 h-screen flex flex-col hidden lg:flex',
       'bg-white border-r border-slate-200',
       'transition-all duration-300',
       collapsed ? 'w-[60px]' : 'w-[224px]'
