@@ -89,7 +89,7 @@ export default function DashboardPage() {
       host: meetingForm.host, topic: meetingForm.topic, status: 'upcoming', participants: [],
       createdAt: now,
     })
-    setMeetingForm({ date: '', time: '14:00-17:00', location: '实验室 401', host: '赵志伟' })
+    setMeetingForm({ date: '', time: '14:00-17:00', location: '实验室 401', host: '赵志伟', topic: '' })
     setMeetingOpen(false)
   }
 

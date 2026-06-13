@@ -37,7 +37,7 @@ export default function MeetingsPage() {
     if (!form.date) return
     await addMeeting({ date: form.date, time: form.time, location: form.location, host: form.host, topic: form.topic, status: 'upcoming' })
     toast.success('组会已安排')
-    setForm({ date: '', time: '14:00-17:00', location: '实验室 401', host: '赵志伟' })
+    setForm({ date: '', time: '14:00-17:00', location: '实验室 401', host: '赵志伟', topic: '' })
     setFormOpen(false)
   }
 
