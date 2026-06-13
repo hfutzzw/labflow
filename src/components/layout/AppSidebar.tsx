@@ -29,7 +29,7 @@ export default function AppSidebar() {
       'fixed left-0 top-0 z-40 h-screen flex flex-col hidden lg:flex',
       'bg-white border-r border-sidebar-border',
       'transition-all duration-300',
-      collapsed ? 'w-[56px]' : 'w-[216px]'
+      collapsed ? 'w-[56px]' : 'w-[240px]'
     )}>
       <div className={cn('flex items-center h-14 px-4 border-b border-slate-50', collapsed ? 'justify-center' : 'gap-2.5')}>
         <svg width="28" height="28" viewBox="0 0 28 28" fill="none" className="shrink-0">
@@ -47,7 +47,7 @@ export default function AppSidebar() {
           const Icon = item.icon
           const link = (
             <Link key={item.href} href={item.href} className={cn(
-              'flex items-center gap-3 px-3 py-2.5 rounded-xl text-[15px] font-medium transition-all duration-150',
+              'flex items-center gap-3 px-3 py-2.5 rounded-xl text-base font-medium transition-all duration-150',
               isActive ? 'bg-indigo-50 text-indigo-600 shadow-sm' : 'text-slate-500 hover:text-slate-700 hover:bg-slate-50',
               collapsed && 'justify-center px-2'
             )}>
