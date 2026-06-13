@@ -1,7 +1,8 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
-import { ChevronRight, Search, Bell, Command } from 'lucide-react'
+import { ChevronRight, LogOut } from 'lucide-react'
+import { useAuth } from '@/lib/auth'
 import { format } from 'date-fns'
 import { cn } from '@/lib/utils'
 import { Input } from '@/components/ui/input'
@@ -42,47 +43,27 @@ function getBreadcrumbs(pathname: string): { label: string; href: string; active
 
 export default function Topbar() {
   const pathname = usePathname()
+  const { user, signOut } = useAuth()
   const breadcrumbs = getBreadcrumbs(pathname)
   const today = format(new Date(), 'yyyy年M月d日 EEEE')
 
   return (
-    <header className="sticky top-0 z-30 flex items-center justify-between h-14 px-6 bg-background/80 backdrop-blur-md border-b border-border">
-      {/* Left: Breadcrumbs */}
-      <div className="flex items-center gap-2 text-sm">
+    <header className="sticky top-0 z-30 flex items-center justify-between h-14 px-4 lg:px-6 bg-white/80 backdrop-blur-md border-b border-slate-200">
+      <div className="flex items-center gap-2 text-sm min-w-0">
         {breadcrumbs.map((crumb, i) => (
-          <div key={crumb.href} className="flex items-center gap-2">
-            {i > 0 && <ChevronRight className="w-3.5 h-3.5 text-muted-foreground/50" />}
-            <span
-              className={cn(
-                'transition-colors',
-                crumb.active
-                  ? 'text-foreground font-semibold'
-                  : 'text-muted-foreground hover:text-foreground cursor-pointer'
-              )}
-            >
+          <div key={crumb.href} className="flex items-center gap-2 min-w-0">
+            {i > 0 && <ChevronRight className="w-3.5 h-3.5 text-slate-300 shrink-0" />}
+            <span className={cn('transition-colors truncate', crumb.active ? 'text-slate-900 font-semibold' : 'text-slate-400')}>
               {crumb.label}
             </span>
           </div>
         ))}
       </div>
-
-      {/* Right: actions */}
-      <div className="flex items-center gap-4">
-        {/* Date */}
-        <span className="text-xs text-muted-foreground hidden md:block">{today}</span>
-
-        <Separator orientation="vertical" className="h-5 hidden md:block" />
-
-        {/* Search hint */}
-        <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-muted/50 border border-border/50 text-xs text-muted-foreground">
-          <Command className="w-3 h-3" />
-          <span>K</span>
-        </div>
-
-        {/* Notifications */}
-        <button className="relative p-2 rounded-lg hover:bg-muted transition-colors">
-          <Bell className="w-4 h-4 text-muted-foreground" />
-          <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-destructive" />
+      <div className="flex items-center gap-3 shrink-0">
+        <span className="text-xs text-slate-400 hidden md:block">{today}</span>
+        <span className="text-xs text-slate-300 hidden md:block">{user?.email}</span>
+        <button onClick={signOut} className="flex items-center gap-1 text-xs text-slate-400 hover:text-red-500 transition-colors px-2 py-1 rounded-lg hover:bg-red-50">
+          <LogOut className="w-3.5 h-3.5" />退出
         </button>
       </div>
     </header>
