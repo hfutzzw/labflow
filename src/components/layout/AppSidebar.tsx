@@ -47,7 +47,7 @@ export default function AppSidebar() {
           const Icon = item.icon
           const link = (
             <Link key={item.href} href={item.href} className={cn(
-              'flex items-center gap-3 px-3 py-2.5 rounded-xl text-[13px] font-medium transition-all duration-150',
+              'flex items-center gap-3 px-3 py-2.5 rounded-xl text-[15px] font-medium transition-all duration-150',
               isActive ? 'bg-indigo-50 text-indigo-600 shadow-sm' : 'text-slate-500 hover:text-slate-700 hover:bg-slate-50',
               collapsed && 'justify-center px-2'
             )}>
