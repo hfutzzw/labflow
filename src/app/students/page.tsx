@@ -92,7 +92,7 @@ export default function StudentsPage() {
   }
 
   return (
-    <div className="max-w-[1440px] mx-auto space-y-6">
+    <div className="max-w-[1600px] mx-auto space-y-6">
       <SectionHeader title="学生管理" description={`共 ${students.filter(s => s.id !== 'supervisor').length} 名，筛选 ${filtered.length} 名`}
         action={
           <div className="flex gap-2">

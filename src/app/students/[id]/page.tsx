@@ -29,7 +29,7 @@ export default function StudentDetailPage() {
   const student = students.find(s => s.id === params.id)
   if (!student) {
     return (
-      <div className="max-w-[900px] mx-auto py-20 text-center">
+      <div className="max-w-[1200px] mx-auto py-20 text-center">
         <p className="text-slate-400 text-lg mb-4">未找到该学生</p>
         <Link href="/students" className="text-indigo-600 hover:underline text-sm">← 返回学生列表</Link>
       </div>
@@ -98,7 +98,7 @@ export default function StudentDetailPage() {
   }
 
   return (
-    <div className="max-w-[960px] mx-auto space-y-6">
+    <div className="max-w-[1400px] mx-auto space-y-6">
       <Link href="/students" className="inline-flex items-center gap-1 text-sm text-slate-500 hover:text-slate-700">
         <ArrowLeft className="w-4 h-4" />返回学生列表
       </Link>

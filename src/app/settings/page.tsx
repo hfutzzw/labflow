@@ -17,7 +17,7 @@ export default function SettingsPage() {
   }
 
   return (
-    <div className="max-w-[900px] mx-auto space-y-8">
+    <div className="max-w-[1200px] mx-auto space-y-8">
       <SectionHeader
         title="设置"
         description="管理课题组基本信息和默认配置"

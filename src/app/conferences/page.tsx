@@ -59,7 +59,7 @@ export default function ConferencesPage() {
   }
 
   return (
-    <div className="max-w-[1440px] mx-auto space-y-6">
+    <div className="max-w-[1600px] mx-auto space-y-6">
       <SectionHeader title="顶会 DDL" description={`共 ${conferences.length} 个会议`}
         action={<Button size="sm" onClick={handleSync} disabled={syncing} className="gap-1.5"><RefreshCw className={cn('w-4 h-4', syncing && 'animate-spin')} />{syncing ? '同步中...' : '在线同步 DDL'}</Button>} />
 

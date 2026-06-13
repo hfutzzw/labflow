@@ -105,7 +105,7 @@ export default function TasksPage() {
   }
 
   return (
-    <div className="max-w-[1440px] mx-auto space-y-6">
+    <div className="max-w-[1600px] mx-auto space-y-6">
       <SectionHeader
         title="任务看板"
         description={`共 ${tasks.length} 个任务，${tasks.filter(t => t.status === 'done').length} 已完成`}

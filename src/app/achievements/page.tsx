@@ -60,7 +60,7 @@ export default function AchievementsPage() {
   }
 
   return (
-    <div className="max-w-[1200px] mx-auto space-y-6">
+    <div className="max-w-[1600px] mx-auto space-y-6">
       <SectionHeader title="学生成果管理" description={`共 ${achievements.length} 项成果`}
         action={<Button size="sm" className="gap-1.5" onClick={() => setDialogOpen(true)}><Plus className="w-4 h-4" />添加成果</Button>} />
 

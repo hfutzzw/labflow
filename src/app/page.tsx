@@ -94,7 +94,7 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="max-w-[1440px] mx-auto space-y-8">
+    <div className="max-w-[1600px] mx-auto space-y-8">
       {/* Welcome */}
       <div className="relative overflow-hidden rounded-2xl gradient-welcome p-8 text-white">
         <div className="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">

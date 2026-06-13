@@ -44,7 +44,7 @@ export default function MeetingsPage() {
   const list = tab === 'upcoming' ? upcoming : past
 
   return (
-    <div className="max-w-[1100px] mx-auto space-y-6">
+    <div className="max-w-[1400px] mx-auto space-y-6">
       <SectionHeader title="组会管理" description={`共 ${meetings.length} 次组会，${upcoming.length} 场即将进行`}
         action={<Button size="sm" className="gap-1.5" onClick={() => setFormOpen(true)}><Plus className="w-4 h-4" />安排组会</Button>} />
 

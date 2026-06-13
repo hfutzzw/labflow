@@ -28,7 +28,7 @@ export default function ProjectsPage() {
   const getConf = (id?: string) => id ? conferences.find(c => c.id === id)?.name : undefined
 
   return (
-    <div className="max-w-[1440px] mx-auto space-y-6">
+    <div className="max-w-[1600px] mx-auto space-y-6">
       <SectionHeader title="论文 / Idea 项目" description={`共 ${projects.length} 个项目`}
         action={<div className="flex gap-3"><div className="relative"><Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" /><Input placeholder="搜索项目..." value={search} onChange={e => setSearch(e.target.value)} className="pl-10 w-56 bg-white border-slate-200" /></div><Button size="sm" className="gap-1.5"><Plus className="w-4 h-4" />新建项目</Button></div>} />
 
