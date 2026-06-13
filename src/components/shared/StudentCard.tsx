@@ -16,9 +16,9 @@ export default function StudentCard({ student, className }: { student: Student; 
               {initials}
             </div>
             <div className="min-w-0">
-              <h3 className="text-sm font-semibold text-slate-900 truncate">{student.name}</h3>
+              <h3 className="text-base font-semibold text-slate-900 truncate">{student.name}</h3>
               <div className="flex items-center gap-1.5 mt-0.5">
-                <span className="text-xs text-slate-500">{student.grade}</span>
+                <span className="text-sm text-slate-500">{student.grade}</span>
                 <span className="text-[10px] px-1.5 py-0.5 rounded bg-slate-100 text-slate-500 font-medium">{degreeLabel}</span>
               </div>
             </div>

@@ -29,7 +29,7 @@ export default function TaskCard({ task, assigneeName, className, onClick, onSta
       <div className="flex items-start gap-2 mb-2">
         <span className="text-sm shrink-0 mt-0.5">{getTaskTypeIcon(task.type)}</span>
         <div className="min-w-0 flex-1">
-          <h4 className="text-[13px] font-medium text-slate-900 leading-snug line-clamp-2">{task.title}</h4>
+          <h4 className="text-[14px] font-medium text-slate-900 leading-snug line-clamp-2">{task.title}</h4>
           <span className="text-[10px] text-slate-400">{TASK_TYPE_LABELS[task.type]}</span>
         </div>
       </div>
