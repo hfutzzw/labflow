@@ -25,8 +25,8 @@ export default function StatCard({ label, value, icon: Icon, trend, trendValue, 
         <Icon className={cn('w-5 h-5', c.icon)} />
       </div>
       <div>
-        <p className="text-sm text-slate-500 mb-0.5">{label}</p>
-        <p className="text-[32px] font-bold tracking-tight text-slate-900">{value}</p>
+        <p className="text-base text-slate-500 mb-0.5">{label}</p>
+        <p className="text-[38px] font-bold tracking-tight text-slate-900">{value}</p>
         {trendValue && <p className="text-xs text-slate-400 mt-0.5">{trendValue}</p>}
       </div>
     </div>

@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="zh-CN" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body className="font-sans antialiased pb-16 lg:pb-0 text-[17px]">
+      <body className="font-sans antialiased pb-16 lg:pb-0 text-[20px]">
         <AppProvider>{children}</AppProvider>
         <Toaster position="top-right" richColors closeButton />
       </body>

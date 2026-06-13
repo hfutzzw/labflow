@@ -46,7 +46,7 @@ function AppShell({ children }: { children: ReactNode }) {
       <div className="hidden lg:block">
         <AppSidebar />
       </div>
-      <div className="flex-1 flex flex-col w-full lg:ml-[240px]">
+      <div className="flex-1 flex flex-col w-full lg:ml-[260px]">
         <Topbar />
         <main className="flex-1 p-4 lg:p-6">{children}</main>
       </div>
