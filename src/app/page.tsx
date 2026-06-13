@@ -118,10 +118,10 @@ export default function DashboardPage() {
 
       {/* Stats */}
       <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <StatCard label="在读学生" value={stats.totalStudents} icon={Users} color="indigo" trend="up" trendValue="本学期 +2" />
+        <StatCard label="在读学生" value={stats.totalStudents} icon={Users} color="blue" trend="up" trendValue="本学期 +2" />
         <StatCard label="本周组会" value={stats.weeklyMeetings} icon={Calendar} color="violet" />
         <StatCard label="活跃任务" value={tasks.filter(t => t.status === 'in_progress').length} icon={FlaskConical} color="sky" />
-        <StatCard label="最近 DDL" value={`${stats.nextDdlDays} 天`} icon={Clock} color="emerald" />
+        <StatCard label="最近 DDL" value={`${stats.nextDdlDays} 天`} icon={Clock} color="green" />
       </div>
 
       {/* ===== 导师工作台 ===== */}
