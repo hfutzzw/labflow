@@ -141,6 +141,7 @@ export interface Meeting {
   time: string
   location: string
   meetingLink?: string
+  topic?: string
   host: string
   status: MeetingStatus
   participants: string[]

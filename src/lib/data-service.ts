@@ -66,7 +66,7 @@ function mapMeeting(row: any): Meeting {
   return {
     id: row.id, date: row.date, time: row.time,
     location: row.location, meetingLink: row.meeting_link || row.link,
-    host: row.host, status: row.status,
+    topic: row.topic, host: row.host, status: row.status,
     participants: row.participants ?? [], createdAt: row.created_at,
   }
 }
@@ -183,6 +183,7 @@ export async function createMeeting(m: Partial<Meeting>): Promise<{ data: Meetin
     location: m.location || '实验室 401',
     meeting_link: m.meetingLink || null,
     host: m.host || '赵志伟',
+    topic: m.topic || '',
     status: m.status || 'upcoming',
     participants: m.participants ?? [],
   }).select().single()

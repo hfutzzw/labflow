@@ -22,7 +22,7 @@ export default function MeetingsPage() {
 
   // Create meeting
   const [formOpen, setFormOpen] = useState(false)
-  const [form, setForm] = useState({ date: '', time: '14:00-17:00', location: '实验室 401', host: '赵志伟' })
+  const [form, setForm] = useState({ date: '', time: '14:00-17:00', location: '实验室 401', host: '赵志伟', topic: '' })
   const [tab, setTab] = useState<'upcoming' | 'past'>('upcoming')
 
   const handleDelete = async (id: string) => {
@@ -35,7 +35,7 @@ export default function MeetingsPage() {
 
   const handleCreate = async () => {
     if (!form.date) return
-    await addMeeting({ date: form.date, time: form.time, location: form.location, host: form.host, status: 'upcoming' })
+    await addMeeting({ date: form.date, time: form.time, location: form.location, host: form.host, topic: form.topic, status: 'upcoming' })
     toast.success('组会已安排')
     setForm({ date: '', time: '14:00-17:00', location: '实验室 401', host: '赵志伟' })
     setFormOpen(false)
@@ -85,9 +85,9 @@ export default function MeetingsPage() {
             <h2 className="text-lg font-bold text-slate-900 mb-4">安排组会</h2>
             <div className="space-y-3">
               <div className="space-y-1.5"><Label>日期 *</Label><Input type="date" value={form.date} onChange={e => setForm({ ...form, date: e.target.value })} /></div>
+              <div className="space-y-1.5"><Label>主题</Label><Input value={form.topic} onChange={e => setForm({ ...form, topic: e.target.value })} placeholder="本次组会的主题" /></div>
               <div className="space-y-1.5"><Label>时间</Label><Input value={form.time} onChange={e => setForm({ ...form, time: e.target.value })} /></div>
               <div className="space-y-1.5"><Label>地点</Label><Input value={form.location} onChange={e => setForm({ ...form, location: e.target.value })} /></div>
-              <div className="space-y-1.5"><Label>主持人</Label><Input value={form.host} onChange={e => setForm({ ...form, host: e.target.value })} /></div>
             </div>
             <div className="flex justify-end gap-3 mt-6">
               <Button variant="outline" onClick={() => setFormOpen(false)}>取消</Button>

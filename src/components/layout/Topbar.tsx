@@ -14,6 +14,7 @@ const breadcrumbMap: Record<string, string> = {
   '/tasks': '任务看板',
   '/achievements': '学生成果',
   '/conferences': '顶会 DDL',
+  '/interviews': '招生面试',
   '/meetings': '组会管理',
   '/settings': '设置',
 }

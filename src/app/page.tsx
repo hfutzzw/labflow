@@ -53,7 +53,7 @@ export default function DashboardPage() {
 
   // Meeting dialog
   const [meetingOpen, setMeetingOpen] = useState(false)
-  const [meetingForm, setMeetingForm] = useState({ date: '', time: '14:00-17:00', location: '实验室 401', host: '赵志伟' })
+  const [meetingForm, setMeetingForm] = useState({ date: '', time: '14:00-17:00', location: '实验室 401', host: '赵志伟', topic: '' })
 
   const handleCreateTask = async () => {
     if (!taskForm.title || !taskForm.assigneeId) return
@@ -86,7 +86,7 @@ export default function DashboardPage() {
     const now = new Date().toISOString().slice(0, 10)
     await addMeeting({
       date: meetingForm.date, time: meetingForm.time, location: meetingForm.location,
-      host: meetingForm.host, status: 'upcoming', participants: [],
+      host: meetingForm.host, topic: meetingForm.topic, status: 'upcoming', participants: [],
       createdAt: now,
     })
     setMeetingForm({ date: '', time: '14:00-17:00', location: '实验室 401', host: '赵志伟' })
@@ -258,9 +258,9 @@ export default function DashboardPage() {
             <h2 className="text-lg font-bold text-slate-900 mb-4">安排组会</h2>
             <div className="space-y-3">
               <div className="space-y-1.5"><Label>日期 *</Label><Input type="date" value={meetingForm.date} onChange={e => setMeetingForm({ ...meetingForm, date: e.target.value })} /></div>
+              <div className="space-y-1.5"><Label>主题</Label><Input value={meetingForm.topic} onChange={e => setMeetingForm({ ...meetingForm, topic: e.target.value })} placeholder="本次组会的主题" /></div>
               <div className="space-y-1.5"><Label>时间</Label><Input value={meetingForm.time} onChange={e => setMeetingForm({ ...meetingForm, time: e.target.value })} /></div>
               <div className="space-y-1.5"><Label>地点</Label><Input value={meetingForm.location} onChange={e => setMeetingForm({ ...meetingForm, location: e.target.value })} /></div>
-              <div className="space-y-1.5"><Label>主持人</Label><Input value={meetingForm.host} onChange={e => setMeetingForm({ ...meetingForm, host: e.target.value })} /></div>
             </div>
             <div className="flex justify-end gap-3 mt-6">
               <Button variant="outline" onClick={() => setMeetingOpen(false)}>取消</Button>

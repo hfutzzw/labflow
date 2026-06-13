@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import {
   LayoutDashboard, Users, Kanban, Calendar,
-  UsersRound, Settings, FlaskConical,
+  UsersRound, Settings, FlaskConical, GraduationCap,
 } from 'lucide-react'
 import { useState } from 'react'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
@@ -15,6 +15,7 @@ const navItems = [
   { href: '/students', label: '学生', icon: Users },
   { href: '/tasks', label: '任务', icon: Kanban },
   { href: '/achievements', label: '成果', icon: FlaskConical },
+  { href: '/interviews', label: '招生', icon: GraduationCap },
   { href: '/conferences', label: '顶会', icon: Calendar },
   { href: '/meetings', label: '组会', icon: UsersRound },
 ]
