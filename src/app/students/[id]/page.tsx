@@ -170,21 +170,23 @@ export default function StudentDetailPage() {
                   {isExpanded && (
                     <div className="border-t border-slate-100 p-5 bg-slate-50/50 space-y-4">
                       {/* Add record form */}
-                      <div className="p-4 bg-white rounded-xl border border-slate-200 space-y-3">
-                        <p className="text-sm font-semibold text-slate-900">记录本次进度</p>
-                        <div>
-                          <Label className="text-xs font-medium text-slate-700 mb-1 block">当前进度</Label>
-                          <Textarea rows={2} value={logForm.currentStatus} onChange={e => setLogForm({ ...logForm, currentStatus: e.target.value })} placeholder="完成了什么、实验跑到哪一步了" className="text-xs" />
+                      <div className="p-4 bg-white rounded-xl border border-indigo-200 shadow-sm space-y-3">
+                        <p className="text-sm font-bold text-indigo-700 flex items-center gap-1.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-indigo-500" />记录本次进度
+                        </p>
+                        <div className="space-y-1">
+                          <Label className="text-xs font-semibold text-emerald-700 flex items-center gap-1">📝 当前进度</Label>
+                          <Textarea rows={2} value={logForm.currentStatus} onChange={e => setLogForm({ ...logForm, currentStatus: e.target.value })} placeholder="这周完成了什么？数据跑了多少？论文写到哪了？" className="text-xs border-emerald-100 focus:border-emerald-300" />
                         </div>
-                        <div>
-                          <Label className="text-xs font-medium text-slate-700 mb-1 block">遇到问题</Label>
-                          <Textarea rows={2} value={logForm.difficulties} onChange={e => setLogForm({ ...logForm, difficulties: e.target.value })} placeholder="遇到的困难、阻塞点" className="text-xs" />
+                        <div className="space-y-1">
+                          <Label className="text-xs font-semibold text-amber-700 flex items-center gap-1">⚠️ 遇到问题</Label>
+                          <Textarea rows={2} value={logForm.difficulties} onChange={e => setLogForm({ ...logForm, difficulties: e.target.value })} placeholder="实验跑不通？代码有 bug？数据不够？思路卡住了？" className="text-xs border-amber-100 focus:border-amber-300" />
                         </div>
-                        <div>
-                          <Label className="text-xs font-medium text-slate-700 mb-1 block">下一步</Label>
-                          <Textarea rows={2} value={logForm.nextSteps} onChange={e => setLogForm({ ...logForm, nextSteps: e.target.value })} placeholder="接下来的计划、要做的事" className="text-xs" />
+                        <div className="space-y-1">
+                          <Label className="text-xs font-semibold text-blue-700 flex items-center gap-1">➡️ 下一步</Label>
+                          <Textarea rows={2} value={logForm.nextSteps} onChange={e => setLogForm({ ...logForm, nextSteps: e.target.value })} placeholder="下周做什么？准备跑什么实验？交什么材料？" className="text-xs border-blue-100 focus:border-blue-300" />
                         </div>
-                        <Button size="sm" onClick={() => handleAddLog(task.id)} disabled={saving || !logForm.currentStatus}>
+                        <Button size="sm" className="w-full" onClick={() => handleAddLog(task.id)} disabled={saving || !logForm.currentStatus}>
                           {saving ? <Loader2 className="w-3.5 h-3.5 animate-spin mr-1" /> : null}保存记录
                         </Button>
                       </div>
@@ -195,12 +197,12 @@ export default function StudentDetailPage() {
                           <p className="text-xs font-semibold text-slate-500 mb-2">进度记录 ({taskLogs.length})</p>
                           <div className="space-y-0">
                             {taskLogs.map((log, i) => (
-                              <div key={log.id} className="relative pl-5 pb-3 border-l-2 border-slate-200 last:border-l-0 last:pb-0">
-                                <div className="absolute left-[-4px] top-1.5 w-2 h-2 rounded-full bg-indigo-500 ring-2 ring-white" />
-                                <p className="text-[10px] text-slate-400">{format(new Date(log.createdAt), 'MM/dd HH:mm')} · <span className="font-semibold text-indigo-600">{log.progress}%</span></p>
-                                <p className="text-xs text-slate-900 mt-0.5">{log.currentStatus}</p>
-                                {log.difficulties && <p className="text-xs text-amber-600 mt-0.5">⚠ {log.difficulties}</p>}
-                                {log.nextSteps && <p className="text-xs text-slate-500 mt-0.5">→ {log.nextSteps}</p>}
+                              <div key={log.id} className="relative pl-5 pb-4 border-l-2 border-slate-200 last:border-l-0 last:pb-0">
+                                <div className="absolute left-[-5px] top-1.5 w-2.5 h-2.5 rounded-full bg-indigo-500 ring-2 ring-white" />
+                                <p className="text-[11px] text-slate-500 font-medium mb-1.5">{format(new Date(log.createdAt), 'MM/dd HH:mm')}</p>
+                                <p className="text-xs text-slate-900 leading-relaxed"><span className="font-semibold text-emerald-600">📝 当前进度：</span>{log.currentStatus}</p>
+                                {log.difficulties && <p className="text-xs text-amber-700 leading-relaxed mt-1.5"><span className="font-semibold">⚠️ 遇到问题：</span>{log.difficulties}</p>}
+                                {log.nextSteps && <p className="text-xs text-blue-700 leading-relaxed mt-1.5"><span className="font-semibold">➡️ 下一步：</span>{log.nextSteps}</p>}
                               </div>
                             ))}
                           </div>

@@ -167,21 +167,21 @@ export default function TasksPage() {
                 </div>
                 {showLogForm && (
                   <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-3 mb-3">
-                    <div><Label className="text-xs font-medium mb-1 block">当前进度</Label><Textarea rows={2} value={logForm.currentStatus} onChange={e => setLogForm({ ...logForm, currentStatus: e.target.value })} placeholder="完成了什么..." className="mt-1 text-xs" /></div>
-                    <div><Label className="text-xs font-medium mb-1 block">遇到问题</Label><Textarea rows={2} value={logForm.difficulties} onChange={e => setLogForm({ ...logForm, difficulties: e.target.value })} placeholder="遇到什么问题..." className="mt-1 text-xs" /></div>
-                    <div><Label className="text-xs font-medium mb-1 block">下一步</Label><Textarea rows={2} value={logForm.nextSteps} onChange={e => setLogForm({ ...logForm, nextSteps: e.target.value })} placeholder="接下来要做什么..." className="mt-1 text-xs" /></div>
-                    <Button size="sm" onClick={handleAddLog} disabled={addingLog || !logForm.currentStatus}>{addingLog ? <Loader2 className="w-3.5 h-3.5 animate-spin mr-1" /> : null}保存记录</Button>
+                    <div className="space-y-1"><Label className="text-xs font-semibold text-emerald-700">📝 当前进度</Label><Textarea rows={2} value={logForm.currentStatus} onChange={e => setLogForm({ ...logForm, currentStatus: e.target.value })} placeholder="完成了什么..." className="mt-1 text-xs border-emerald-100" /></div>
+                    <div className="space-y-1"><Label className="text-xs font-semibold text-amber-700">⚠️ 遇到问题</Label><Textarea rows={2} value={logForm.difficulties} onChange={e => setLogForm({ ...logForm, difficulties: e.target.value })} placeholder="遇到什么问题..." className="mt-1 text-xs border-amber-100" /></div>
+                    <div className="space-y-1"><Label className="text-xs font-semibold text-blue-700">➡️ 下一步</Label><Textarea rows={2} value={logForm.nextSteps} onChange={e => setLogForm({ ...logForm, nextSteps: e.target.value })} placeholder="接下来要做什么..." className="mt-1 text-xs border-blue-100" /></div>
+                    <Button size="sm" className="w-full" onClick={handleAddLog} disabled={addingLog || !logForm.currentStatus}>{addingLog ? <Loader2 className="w-3.5 h-3.5 animate-spin mr-1" /> : null}保存记录</Button>
                   </div>
                 )}
                 {logs.length > 0 ? (
                   <div className="space-y-2">
                     {logs.map(log => (
-                      <div key={log.id} className="relative pl-6 pb-3 border-l-2 border-slate-200 last:border-l-0 last:pb-0">
-                        <div className="absolute left-[-5px] top-1 w-2.5 h-2.5 rounded-full bg-indigo-500 ring-2 ring-white" />
-                        <p className="text-[10px] text-slate-400 mb-1">{format(new Date(log.createdAt), 'MM/dd HH:mm')} · <span className="font-semibold text-indigo-600">{log.progress}%</span></p>
-                        <p className="text-xs text-slate-900 mb-0.5">{log.currentStatus}</p>
-                        {log.difficulties && <p className="text-xs text-amber-600">⚠ {log.difficulties}</p>}
-                        {log.nextSteps && <p className="text-xs text-slate-500">→ {log.nextSteps}</p>}
+                      <div key={log.id} className="relative pl-5 pb-4 border-l-2 border-slate-200 last:border-l-0 last:pb-0">
+                        <div className="absolute left-[-5px] top-1.5 w-2.5 h-2.5 rounded-full bg-indigo-500 ring-2 ring-white" />
+                        <p className="text-[11px] text-slate-500 font-medium mb-1.5">{format(new Date(log.createdAt), 'MM/dd HH:mm')}</p>
+                        <p className="text-xs text-slate-900 leading-relaxed"><span className="font-semibold text-emerald-600">📝 当前进度：</span>{log.currentStatus}</p>
+                        {log.difficulties && <p className="text-xs text-amber-700 leading-relaxed mt-1.5"><span className="font-semibold">⚠️ 遇到问题：</span>{log.difficulties}</p>}
+                        {log.nextSteps && <p className="text-xs text-blue-700 leading-relaxed mt-1.5"><span className="font-semibold">➡️ 下一步：</span>{log.nextSteps}</p>}
                       </div>
                     ))}
                   </div>
